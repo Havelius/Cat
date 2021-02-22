@@ -1,7 +1,5 @@
-public class Loader
-{
-    public static void main(String[] args)
-    {
+public class Loader {
+    public static void main(String[] args) {
         Cat murka = new Cat();
 
         System.out.println("Murka weight: " + murka.getWeight());
@@ -17,6 +15,7 @@ public class Loader
         murka.pee();
         System.out.println("Murka weight: " + murka.getWeight());
         System.out.println("Murka: " + murka.getStatus());
+
         System.out.println("Feed: " + murka.getFeed());
 
         System.out.println();
@@ -32,9 +31,11 @@ public class Loader
 
         Cat petya = new Cat();
         System.out.println("Petya weight: " + petya.getWeight());
+        System.out.println("Petya: " + petya.isAlive());
 
-        petya.drink(5);
+        petya.drink(500);
         System.out.println("Petya weight: " + petya.getWeight());
         System.out.println("Petya: " + petya.getStatus());
+        System.out.println("Petya: " + petya.isAlive());
     }
 }
