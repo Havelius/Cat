@@ -28,45 +28,31 @@ public class Cat
     
     public void meow(double amount)
     {
-        if (isAlive()) {
-            addWeight(amount);
-        }
-        while (weight >= minWeight)
-        {
-            weight = weight - amount;
-            System.out.println("Meow");
-            if (weight < minWeight) {
-                getStatus();
+        weight = weight - amount;
+        System.out.println("Meow");
+        if (isAlive()) { this.weight += amount;
+            this.amountDrink += amount;
+            if (!isAlive()) { count--;
             }
         }
     }
 
     public void feed(double amount)
     {
-        if (isAlive()) {
-            addWeight(amount);
-        }
         amountFeed = amountFeed + amount;
-        while (weight <= maxWeight)
-        {
-            weight = weight + amount;
-            if (weight > maxWeight) {
-                getStatus();
+        if (isAlive()) { this.weight += amount;
+            this.amountDrink += amount;
+            if (!isAlive()) { count--;
             }
         }
     }
 
     public void drink(double amount)
     {
-        if (isAlive()) {
-            addWeight(amount);
-        }
         amountDrink = amountDrink + amount;
-        while (weight <= maxWeight)
-        {
-            weight = weight + amount;
-            if (weight > maxWeight) {
-                getStatus();
+        if (isAlive()) { this.weight += amount;
+            this.amountDrink += amount;
+            if (!isAlive()) { count--;
             }
         }
     }
