@@ -8,6 +8,7 @@ public class Cat
     private double maxWeight;
     private double amountFeed;
     private double amountDrink;
+    private static int count;
 
     public Cat()
     {
@@ -17,11 +18,19 @@ public class Cat
         maxWeight = 9000.0;
         amountFeed = 0;
         amountDrink = 0;
+        count++;
 
     }
-
+    
+    public static int getCount() {
+        return count;
+    }
+    
     public void meow(double amount)
     {
+        if (isAlive()) {
+            addWeight(amount);
+        }
         while (weight >= minWeight)
         {
             weight = weight - amount;
@@ -34,6 +43,9 @@ public class Cat
 
     public void feed(double amount)
     {
+        if (isAlive()) {
+            addWeight(amount);
+        }
         amountFeed = amountFeed + amount;
         while (weight <= maxWeight)
         {
@@ -46,6 +58,9 @@ public class Cat
 
     public void drink(double amount)
     {
+        if (isAlive()) {
+            addWeight(amount);
+        }
         amountDrink = amountDrink + amount;
         while (weight <= maxWeight)
         {
@@ -56,6 +71,19 @@ public class Cat
         }
     }
 
+    private void setWeight(Double weight) {
+        if (isAlive()) {
+            this.weight = weight;
+            if (isAlive()) {
+                count--;
+            }
+        }
+    }
+    
+     private void addWeight(Double weight) {
+        setWeight(getWeight() + weight);
+    }
+    
     public double getWeight()
     {
         return weight;
@@ -91,5 +119,9 @@ public class Cat
     public double getDrink()
     {
         return amountDrink;
+    }
+    
+    public boolean isAlive() {
+        return (weight > minWeight && weight < maxWeight);
     }
 }
