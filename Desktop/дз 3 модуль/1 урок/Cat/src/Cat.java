@@ -31,7 +31,6 @@ public class Cat
         weight = weight - amount;
         System.out.println("Meow");
         if (isAlive()) { this.weight += amount;
-            this.amountDrink += amount;
             if (!isAlive()) { count--;
             }
         }
@@ -39,9 +38,8 @@ public class Cat
 
     public void feed(double amount)
     {
-        amountFeed = amountFeed + amount;
         if (isAlive()) { this.weight += amount;
-            this.amountDrink += amount;
+            this.amountFeed += amount;
             if (!isAlive()) { count--;
             }
         }
@@ -49,7 +47,6 @@ public class Cat
 
     public void drink(double amount)
     {
-        amountDrink = amountDrink + amount;
         if (isAlive()) { this.weight += amount;
             this.amountDrink += amount;
             if (!isAlive()) { count--;
