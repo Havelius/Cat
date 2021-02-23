@@ -28,7 +28,6 @@ public class Cat
     
     public void meow(double amount)
     {
-        weight = weight - amount;
         System.out.println("Meow");
         if (isAlive()) { this.weight += amount;
             if (!isAlive()) { count--;
